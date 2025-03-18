@@ -30,16 +30,18 @@ class DocumentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var metadataRecord = document.getMetadata();
+    var (title, :modified) = document.getMetadata();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(metadataRecord.$1),
+        title: Text(title),
       ),
       body: Column(
         children: [
           Center(
-            child: Text('Last modified ${metadataRecord.modified}'),
+            child: Text(
+              'Last modified $modified',
+            ),
           ),
         ],
       ),
